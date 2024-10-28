@@ -1,7 +1,7 @@
 import $ from "jquery";
 
 $(document).ready(() => {
-  $("body").append("<p>This is the first paragraph.</p>");
-  $("body").append("<p>This is the second paragraph.</p>");
-  $("body").append("<p>This is the third paragraph.</p>");
+  $("body").append("<p>Holberton Dashboard</p>");
+  $("body").append("<p>Dashboard data for the students</p>");
+  $("body").append("<p>Copyright - Holberton School</p>");
 });
