@@ -12,14 +12,10 @@ function App() {
       <main className="App-body">
         <p>Login to access the full dashboard</p>
         <form>
-          <label htmlFor="email">Email:</label>
-          <br />
+          <label htmlFor="email">Email: </label>
           <input type="text" id="email" name="email" />
-          <br />
-          <label htmlFor="password">Password:</label>
-          <br />
+          <label htmlFor="password">Password: </label>
           <input type="password" id="password" name="password" />
-          <br />
           <button type="button">OK</button>
         </form>
       </main>
