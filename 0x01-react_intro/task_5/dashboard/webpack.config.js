@@ -1,40 +1,47 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js", // Entry file for Webpack to start bundling
+  mode: "development",
+  entry: "./src/index.js",
   output: {
-    filename: "bundle.js", // Name of the output file
-    path: path.resolve(__dirname, "dist"), // Output directory
-    clean: true, // Clears previous content in 'dist' each build
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
+    clean: true,
+  },
+  devtool: "inline-source-map",
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "dist"),
+    },
+    hot: true,
+    open: true,
+    port: 3000,
   },
   module: {
     rules: [
       {
-        test: /\.css$/, // CSS files
-        use: ["style-loader", "css-loader"], // Applies style-loader and css-loader
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.(png|jpe?g|gif)$/i, // Image files
+        test: /\.(png|jpg|gif|svg)$/,
         use: [
           {
-            loader: "file-loader",
+            loader: "image-webpack-loader",
             options: {
-              name: "[name].[hash].[ext]", // Naming for output images
-              outputPath: "images", // Output directory for images
+              mozjpeg: { progressive: true },
+              optipng: { enabled: true },
+              pngquant: { quality: [0.65, 0.9], speed: 4 },
             },
           },
-          "image-webpack-loader", // Optimizes images
         ],
       },
     ],
   },
-  devServer: {
-    static: {
-      directory: path.join(__dirname, "dist"), // Serve content from 'dist'
-    },
-    compress: true,
-    port: 3000,
-    hot: true, // Enables hot module replacement
-  },
-  devtool: "inline-source-map", // Inline source mapping for debugging
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./dist/index.html",
+    }),
+  ],
 };
