@@ -1,1 +1,1 @@
-Introduction to mastery of React
+Introduction to mastery of React inline styling
