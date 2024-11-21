@@ -1,15 +1,16 @@
 const Immutable = require('immutable')
 
 function getImmutableObject(object) {
-    const map = Immutable.Map(object)
-    console.log(map)
+    const map = Immutable.fromJS(object)
+    // console.log(map)
+    return map
 }
 
-const example = {
-    fear: true,
-    smell: -1033575916.9145899,
-    wall: false,
-    thing: -914767132
-}
+// const example = {
+//     fear: true,
+//     smell: -1033575916.9145899,
+//     wall: false,
+//     thing: -914767132
+// }
 
-console.log(getImmutableObject(example))
+// console.log(getImmutableObject(example))
