@@ -1,9 +1,7 @@
 const Immutable = require('immutable')
 
 function getImmutableObject(object) {
-    const map = Immutable.fromJS(object)
-    // console.log(map)
-    return map
+    return Immutable.fromJS(object)
 }
 
 module.exports = getImmutableObject
