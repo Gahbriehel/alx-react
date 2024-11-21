@@ -1,10 +1,12 @@
 const Immutable = require('immutable')
 
-export default function getImmutableObject(object) {
+function getImmutableObject(object) {
     const map = Immutable.fromJS(object)
     // console.log(map)
     return map
 }
+
+module.exports = getImmutableObject
 
 // const example = {
 //     fear: true,
